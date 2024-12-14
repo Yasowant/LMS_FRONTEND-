@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
-   
-
   return (
     <footer className="bg-gray-900 text-gray-300 py-10 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -17,10 +16,9 @@ const Footer = () => {
             </span>
           </div>
           <p className="text-sm">
-            Empowering learners through accessible and engaging online
-            education. Byway is a leading online learning platform dedicated to
-            providing high-quality, flexible, and affordable educational
-            experiences.
+            Discover a world of knowledge at your fingertips. LMS offers a
+            transformative learning experience with flexible, accessible, and
+            industry-relevant courses tailored to your success.
           </p>
         </div>
 
@@ -28,9 +26,21 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Get Help</h3>
           <ul className="space-y-2 text-sm">
-            <li>Contact Us</li>
-            <li>Latest Articles</li>
-            <li>FAQ</li>
+            <li>
+              <Link to="/contact" className="hover:underline">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/articles" className="hover:underline">
+                Latest Articles
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:underline">
+                FAQ
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -38,11 +48,31 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Programs</h3>
           <ul className="space-y-2 text-sm">
-            <li>Art & Design</li>
-            <li>Business</li>
-            <li>IT & Software</li>
-            <li>Languages</li>
-            <li>Programming</li>
+            <li>
+              <Link to="/programs/art-design" className="hover:underline">
+                Art & Design
+              </Link>
+            </li>
+            <li>
+              <Link to="/programs/business" className="hover:underline">
+                Business
+              </Link>
+            </li>
+            <li>
+              <Link to="/programs/it-software" className="hover:underline">
+                IT & Software
+              </Link>
+            </li>
+            <li>
+              <Link to="/programs/languages" className="hover:underline">
+                Languages
+              </Link>
+            </li>
+            <li>
+              <Link to="/programs/programming" className="hover:underline">
+                Programming
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -56,21 +86,21 @@ const Footer = () => {
           <p className="text-sm mb-4">Mail: agdhfdmd@cddg.in</p>
           {/* Social Media Icons */}
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-white">
+            <Link to="#" className="text-gray-400 hover:text-white">
               <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </Link>
+            <Link to="#" className="text-gray-400 hover:text-white">
               <i className="fab fa-github"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </Link>
+            <Link to="#" className="text-gray-400 hover:text-white">
               <i className="fab fa-google"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </Link>
+            <Link to="#" className="text-gray-400 hover:text-white">
               <i className="fab fa-xing"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </Link>
+            <Link to="#" className="text-gray-400 hover:text-white">
               <i className="fab fa-windows"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
