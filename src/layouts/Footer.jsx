@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.jpeg";
 
 const Footer = () => {
   return (
@@ -8,9 +9,12 @@ const Footer = () => {
         {/* Logo and Description */}
         <div>
           <div className="flex items-center mb-4">
-            <div className="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl">
-              LMS
-            </div>
+            <img
+              src={logo}
+              alt="LMS Logo"
+              className="rounded-full h-12 w-12 border-2 border-white object-cover"
+            />
+
             <span className="ml-2 text-lg font-semibold">
               Learning Management System
             </span>

@@ -32,11 +32,9 @@ const Login = () => {
       toast.error("All fields required");
     }
 
+    const response = await dispatch(loginUser(loginData));
 
-    const response =await dispatch(loginUser(loginData));
-
-    console.log("login response",response);
-    
+    console.log("login response", response);
 
     if (response.payload.success) {
       toast.success("Logged in successfully!");

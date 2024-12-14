@@ -3,23 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCourses } from "../redux/slices/CourseSlice";
 
 export const Courses = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-useEffect(()=>{
-  loadAllCourses();
-},[])
+  useEffect(() => {
+    loadAllCourses();
+  }, []);
 
+  const loadAllCourses = async () => {
+    console.log("Entering coursese");
 
-const loadAllCourses =async  ()=>{
-console.log("Entering coursese");
-  
-  await dispatch(getAllCourses());
-}
-return (
-  <>
-  
-  <h2>Hello World</h2>
-  </>
-)
+    await dispatch(getAllCourses());
+  };
+  return (
+    <>
+      <h2>Hello World</h2>
+    </>
+  );
 };
-

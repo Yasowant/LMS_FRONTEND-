@@ -1,14 +1,14 @@
-import Register from '../loginSetup/Register.jsx';
-import {Courses, Home} from '../pages/index.js'
+import Register from "../loginSetup/Register.jsx";
+import { Courses, Home } from "../pages/index.js";
 
 const routes = [
   {
-    element: <Home/>,
+    element: <Home />,
     path: "/",
     protected: false,
   },
   {
-    element: <Courses/>,
+    element: <Courses />,
     path: "/courses",
     protected: true,
   },
@@ -18,16 +18,15 @@ const routes = [
   //   protected: true,
   // },
   {
-    element: <Register/>,
+    element: <Register />,
     path: "/register",
     protected: true,
   },
   {
-    element: <Register/>,
+    element: <Register />,
     path: "/register",
     protected: true,
   },
 ];
-
 
 export default routes;

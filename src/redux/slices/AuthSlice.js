@@ -3,14 +3,12 @@ import axiosInstance from "../../Helpers/axiosInstance";
 import toast from "react-hot-toast";
 
 const initialState = {
-  token:null,
+  token: null,
   isLoggedIn: localStorage.getItem("isLoggedIn") || false,
-  refreshtoken :localStorage.getItem("token") || "",
+  refreshtoken: localStorage.getItem("token") || "",
   data: localStorage.getItem("data") || {},
-  protected:false,
-
+  protected: false,
 };
-
 
 export const createAccount = createAsyncThunk(
   "/auth/register",
@@ -53,39 +51,43 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk('/auth/logout',async ()=>{
-try {
-  await axios.post('/api/logout', {}, { withCredentials: true });
-  
-  await toast.promise(response, {
-    loading: "Wait! Loggouting....",
-    success: (data) =>{ return  data?.data?.message },
-    error: "Failed to Logout",
-  });
-} catch (error) {
-  toast.error(error?.response?.data?.message);
-}
-})
+export const logout = createAsyncThunk("/auth/logout", async () => {
+  try {
+    await axios.post("/api/logout", {}, { withCredentials: true });
+
+    await toast.promise(response, {
+      loading: "Wait! Loggouting....",
+      success: (data) => {
+        return data?.data?.message;
+      },
+      error: "Failed to Logout",
+    });
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
+});
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
-  extraReducers:(builder)=>{
-    builder.addCase(loginUser.fulfilled ,(state,action)=>{
-        localStorage.setItem("Token",JSON.stringify(action.payload.data?.accessToken));
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUser.fulfilled, (state, action) => {
+        localStorage.setItem(
+          "Token",
+          JSON.stringify(action.payload.data?.accessToken)
+        );
         state.protected = true;
-        state.isLoggedIn=true;
-   
-    })
-    .addCase(logout.fulfilled,(state,action)=>{
-      localStorage.setItem("Token","");
-      state.refreshtoken = null;
-      state.protected = false;
-      state.isLoggedIn=false;
-   
-    })
-  }
+        state.isLoggedIn = true;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        localStorage.setItem("Token", "");
+        state.refreshtoken = null;
+        state.protected = false;
+        state.isLoggedIn = false;
+      });
+  },
 });
 
 export const {} = authSlice.actions;

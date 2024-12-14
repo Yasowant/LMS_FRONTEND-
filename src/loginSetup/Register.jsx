@@ -4,7 +4,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createAccount } from "../redux/slices/AuthSlice";
-import Lmslogin from "../assets/images/Lmslogin.jpg";
+import work from "../assets/images/work.jpeg";
 
 const initialState = {
   fullName: "",
@@ -15,8 +15,6 @@ const initialState = {
 };
 
 const Register = () => {
-  
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [previewImage, setPreviewImage] = useState("");
@@ -65,18 +63,16 @@ const Register = () => {
     }
 
     const formData = new FormData();
-    formData.append("fullName",fullName);
-    formData.append("username",username);
-    formData.append("email",email);
-    formData.append("password",password);
-    formData.append("avatar",avatar);
-
+    formData.append("fullName", fullName);
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("avatar", avatar);
 
     const response = await dispatch(createAccount(formData));
 
     if (response.payload.success) {
-
-    navigate("/login");
+      navigate("/login");
     }
 
     setSignupData(initialState);
@@ -86,7 +82,7 @@ const Register = () => {
   return (
     <div className="w-[100%] flex h-[100vh] fixed ">
       <div className="md:w-[50%] h-[100%] hidden md:block ">
-        <img src={Lmslogin} alt="" className="w-[100%] h-[100%]" />
+        <img src={work} alt="" className="w-[80%] h-[100%] p-2" />
       </div>
       <div className="md:w-[50%] w-[100%] h-[100%] flex justify-center items-center flex-col  p-4 bg-[E5E5E5]">
         <h1 className="text-center font-semibold text-[#000] mb-[20px] text-[24px] ">
